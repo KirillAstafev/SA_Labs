@@ -28,98 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.matrixDataGrid = new System.Windows.Forms.DataGridView();
-            this.vertexComboBox = new System.Windows.Forms.ComboBox();
-            this.vertexCountLabel = new System.Windows.Forms.Label();
-            this.matrixLabel = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.resultSetDataGrid = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.resultMatrixDataGrid = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.setCalcButton = new System.Windows.Forms.Button();
+            this.vertexComboBox = new System.Windows.Forms.ComboBox();
+            this.matrixLabel = new System.Windows.Forms.Label();
+            this.matrixDataGrid = new System.Windows.Forms.DataGridView();
+            this.vertexCountLabel = new System.Windows.Forms.Label();
             this.matrixCalcButton = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.setCalcButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.resultMatrixDataGrid = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.resultSetDataGrid = new System.Windows.Forms.DataGridView();
             this.graphCheckBox = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.edgeComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.resultSetDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultMatrixDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultSetDataGrid)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // matrixDataGrid
-            // 
-            this.matrixDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.matrixDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.matrixDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.matrixDataGrid.Location = new System.Drawing.Point(6, 100);
-            this.matrixDataGrid.Name = "matrixDataGrid";
-            this.matrixDataGrid.Size = new System.Drawing.Size(413, 250);
-            this.matrixDataGrid.TabIndex = 0;
-            // 
-            // vertexComboBox
-            // 
-            this.vertexComboBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.vertexComboBox.FormattingEnabled = true;
-            this.vertexComboBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.vertexComboBox.Location = new System.Drawing.Point(6, 25);
-            this.vertexComboBox.Name = "vertexComboBox";
-            this.vertexComboBox.Size = new System.Drawing.Size(156, 23);
-            this.vertexComboBox.TabIndex = 1;
-            this.vertexComboBox.SelectedIndexChanged += new System.EventHandler(this.vertexComboBox_SelectedIndexChanged);
-            // 
-            // vertexCountLabel
-            // 
-            this.vertexCountLabel.AutoSize = true;
-            this.vertexCountLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.vertexCountLabel.Location = new System.Drawing.Point(6, 3);
-            this.vertexCountLabel.Name = "vertexCountLabel";
-            this.vertexCountLabel.Size = new System.Drawing.Size(145, 19);
-            this.vertexCountLabel.TabIndex = 2;
-            this.vertexCountLabel.Text = "Количество вершин";
-            // 
-            // matrixLabel
-            // 
-            this.matrixLabel.AutoSize = true;
-            this.matrixLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.matrixLabel.Location = new System.Drawing.Point(6, 76);
-            this.matrixLabel.Name = "matrixLabel";
-            this.matrixLabel.Size = new System.Drawing.Size(174, 21);
-            this.matrixLabel.TabIndex = 3;
-            this.matrixLabel.Text = "Матрица смежности";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(949, 589);
-            this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.edgeComboBox);
             this.tabPage1.Controls.Add(this.graphCheckBox);
             this.tabPage1.Controls.Add(this.resultSetDataGrid);
             this.tabPage1.Controls.Add(this.label2);
@@ -140,47 +75,81 @@
             this.tabPage1.Text = "ЛР 1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // resultSetDataGrid
+            // vertexComboBox
             // 
-            this.resultSetDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.resultSetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultSetDataGrid.Location = new System.Drawing.Point(452, 304);
-            this.resultSetDataGrid.Name = "resultSetDataGrid";
-            this.resultSetDataGrid.Size = new System.Drawing.Size(483, 250);
-            this.resultSetDataGrid.TabIndex = 9;
+            this.vertexComboBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.vertexComboBox.FormattingEnabled = true;
+            this.vertexComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.vertexComboBox.Location = new System.Drawing.Point(6, 25);
+            this.vertexComboBox.Name = "vertexComboBox";
+            this.vertexComboBox.Size = new System.Drawing.Size(156, 23);
+            this.vertexComboBox.TabIndex = 1;
+            this.vertexComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
-            // label2
+            // matrixLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(448, 282);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 19);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Множество левых инциденций";
+            this.matrixLabel.AutoSize = true;
+            this.matrixLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.matrixLabel.Location = new System.Drawing.Point(6, 76);
+            this.matrixLabel.Name = "matrixLabel";
+            this.matrixLabel.Size = new System.Drawing.Size(208, 21);
+            this.matrixLabel.TabIndex = 3;
+            this.matrixLabel.Text = "Матрица инцидентности";
             // 
-            // resultMatrixDataGrid
+            // matrixDataGrid
             // 
-            this.resultMatrixDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.resultMatrixDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultMatrixDataGrid.Location = new System.Drawing.Point(452, 29);
-            this.resultMatrixDataGrid.Name = "resultMatrixDataGrid";
-            this.resultMatrixDataGrid.Size = new System.Drawing.Size(483, 250);
-            this.resultMatrixDataGrid.TabIndex = 7;
+            this.matrixDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.matrixDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.matrixDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.matrixDataGrid.Location = new System.Drawing.Point(6, 100);
+            this.matrixDataGrid.Name = "matrixDataGrid";
+            this.matrixDataGrid.Size = new System.Drawing.Size(517, 351);
+            this.matrixDataGrid.TabIndex = 0;
             // 
-            // label1
+            // vertexCountLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(448, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 19);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Матрица инциденций";
+            this.vertexCountLabel.AutoSize = true;
+            this.vertexCountLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.vertexCountLabel.Location = new System.Drawing.Point(6, 3);
+            this.vertexCountLabel.Name = "vertexCountLabel";
+            this.vertexCountLabel.Size = new System.Drawing.Size(145, 19);
+            this.vertexCountLabel.TabIndex = 2;
+            this.vertexCountLabel.Text = "Количество вершин";
+            // 
+            // matrixCalcButton
+            // 
+            this.matrixCalcButton.AutoSize = true;
+            this.matrixCalcButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.matrixCalcButton.Location = new System.Drawing.Point(6, 457);
+            this.matrixCalcButton.Name = "matrixCalcButton";
+            this.matrixCalcButton.Size = new System.Drawing.Size(244, 31);
+            this.matrixCalcButton.TabIndex = 4;
+            this.matrixCalcButton.Text = "Найти матрицу смежности";
+            this.matrixCalcButton.UseVisualStyleBackColor = true;
+            this.matrixCalcButton.Click += new System.EventHandler(this.matrixCalcButton_Click);
             // 
             // setCalcButton
             // 
             this.setCalcButton.AutoSize = true;
             this.setCalcButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.setCalcButton.Location = new System.Drawing.Point(6, 393);
+            this.setCalcButton.Location = new System.Drawing.Point(6, 494);
             this.setCalcButton.Name = "setCalcButton";
             this.setCalcButton.Size = new System.Drawing.Size(391, 31);
             this.setCalcButton.TabIndex = 5;
@@ -188,37 +157,111 @@
             this.setCalcButton.UseVisualStyleBackColor = true;
             this.setCalcButton.Click += new System.EventHandler(this.setCalcButton_Click);
             // 
-            // matrixCalcButton
+            // label1
             // 
-            this.matrixCalcButton.AutoSize = true;
-            this.matrixCalcButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.matrixCalcButton.Location = new System.Drawing.Point(6, 356);
-            this.matrixCalcButton.Name = "matrixCalcButton";
-            this.matrixCalcButton.Size = new System.Drawing.Size(244, 31);
-            this.matrixCalcButton.TabIndex = 4;
-            this.matrixCalcButton.Text = "Найти матрицу инциденций";
-            this.matrixCalcButton.UseVisualStyleBackColor = true;
-            this.matrixCalcButton.Click += new System.EventHandler(this.matrixCalcButton_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(525, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Матрица смежности";
             // 
-            // tabPage2
+            // resultMatrixDataGrid
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(941, 563);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.resultMatrixDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.resultMatrixDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultMatrixDataGrid.Location = new System.Drawing.Point(529, 29);
+            this.resultMatrixDataGrid.Name = "resultMatrixDataGrid";
+            this.resultMatrixDataGrid.Size = new System.Drawing.Size(406, 250);
+            this.resultMatrixDataGrid.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(525, 282);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(224, 19);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Множество левых инциденций";
+            // 
+            // resultSetDataGrid
+            // 
+            this.resultSetDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.resultSetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultSetDataGrid.Location = new System.Drawing.Point(529, 304);
+            this.resultSetDataGrid.Name = "resultSetDataGrid";
+            this.resultSetDataGrid.Size = new System.Drawing.Size(406, 250);
+            this.resultSetDataGrid.TabIndex = 9;
             // 
             // graphCheckBox
             // 
             this.graphCheckBox.AutoSize = true;
-            this.graphCheckBox.Location = new System.Drawing.Point(7, 431);
+            this.graphCheckBox.Location = new System.Drawing.Point(7, 532);
             this.graphCheckBox.Name = "graphCheckBox";
             this.graphCheckBox.Size = new System.Drawing.Size(192, 23);
             this.graphCheckBox.TabIndex = 10;
             this.graphCheckBox.Text = "Ориентированный граф";
             this.graphCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // edgeComboBox
+            // 
+            this.edgeComboBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.edgeComboBox.FormattingEnabled = true;
+            this.edgeComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30"});
+            this.edgeComboBox.Location = new System.Drawing.Point(169, 25);
+            this.edgeComboBox.Name = "edgeComboBox";
+            this.edgeComboBox.Size = new System.Drawing.Size(164, 23);
+            this.edgeComboBox.TabIndex = 11;
+            this.edgeComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(165, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 19);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Количество дуг";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(949, 589);
+            this.tabControl1.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -228,32 +271,33 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "Системный анализ";
-            ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.resultSetDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultMatrixDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultSetDataGrid)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView matrixDataGrid;
-        private System.Windows.Forms.ComboBox vertexComboBox;
-        private System.Windows.Forms.Label vertexCountLabel;
-        private System.Windows.Forms.Label matrixLabel;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox edgeComboBox;
+        private System.Windows.Forms.CheckBox graphCheckBox;
         private System.Windows.Forms.DataGridView resultSetDataGrid;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView resultMatrixDataGrid;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button setCalcButton;
         private System.Windows.Forms.Button matrixCalcButton;
-        private System.Windows.Forms.CheckBox graphCheckBox;
+        private System.Windows.Forms.Label vertexCountLabel;
+        private System.Windows.Forms.DataGridView matrixDataGrid;
+        private System.Windows.Forms.Label matrixLabel;
+        private System.Windows.Forms.ComboBox vertexComboBox;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 

@@ -21,9 +21,20 @@ namespace SA_Labs
         private void InitializeUI()
         {
             vertexComboBox.SelectedItem = "1";
+            edgeComboBox.SelectedItem = "1";
 
-            int vertexCount = int.Parse(vertexComboBox.SelectedItem.ToString());
-            InitializeMatrix(matrixDataGrid, vertexCount, vertexCount);
+            SetMatrixSize();
+        }
+
+        private void SetMatrixSize()
+        {
+            int vertexCount = vertexComboBox.SelectedItem == null ? 1 : 
+                int.Parse(vertexComboBox.SelectedItem.ToString());
+
+            int edgeCount = edgeComboBox.SelectedItem == null ? 1 :
+                int.Parse(edgeComboBox.SelectedItem.ToString());
+
+            InitializeMatrix(matrixDataGrid, vertexCount, edgeCount);
         }
 
         private void InitializeMatrix(DataGridView matrix, int rowCount, int columnCount)
@@ -46,131 +57,33 @@ namespace SA_Labs
             }
         }
 
-        private int getUndirectedEdgeCount()
-        {
-            int edgeCount = 0;
-
-            try
-            {
-                for (int i = 0; i < matrixDataGrid.RowCount - 1; i++)
-                {
-                    for (int j = i; j < matrixDataGrid.ColumnCount; j++)
-                    {
-                        int currentCellValue = int.Parse(matrixDataGrid.Rows[i].Cells[j].Value.ToString());
-                        if (currentCellValue >= 0)
-                        {
-                            if (i == j)
-                            {
-                                while (currentCellValue > 0)
-                                {
-                                    edgeCount++;
-                                    currentCellValue -= 2;
-                                }
-                            }
-                            else
-                            {
-                                while (currentCellValue > 0)
-                                {
-                                    edgeCount++;
-                                    currentCellValue--;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            throw new ArgumentException(
-                                $"ВВЕДЕНО НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ В ЯЧЕЙКЕ ({i + 1}, {j + 1}) В ЯЧЕЙКЕ МАТРИЦЫ: {currentCellValue}.\n" +
-                                $"ДОПУСКАЮТСЯ ТОЛЬКО НЕОТРИЦАТЕЛЬНЫЕ ЗНАЧЕНИЯ.");
-                        }
-                    }
-                }
-            }
-            catch (FormatException)
-            {
-                string errorMessage = $"ВВЕДЕНО НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ ";
-                MessageBox.Show(errorMessage);
-            }
-            catch(ArgumentException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return edgeCount;
-        }
-
-        private int getDirectedEdgeCount()
-        {
-            int edgeCount = 0;
-
-            try
-            {
-                for (int i = 0; i < matrixDataGrid.RowCount - 1; i++)
-                {
-                    for (int j = 0; j < matrixDataGrid.ColumnCount; j++)
-                    {
-                        int currentCellValue = int.Parse(matrixDataGrid.Rows[i].Cells[j].Value.ToString());
-                        if (currentCellValue >= 0)
-                        {
-                            if (i == j)
-                            {
-                                while (currentCellValue > 0)
-                                {
-                                    edgeCount++;
-                                    currentCellValue -= 2;
-                                }
-                            }
-                            else
-                            {
-                                while (currentCellValue > 0)
-                                {
-                                    edgeCount++;
-                                    currentCellValue--;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            throw new ArgumentException(
-                                $"ВВЕДЕНО НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ В ЯЧЕЙКЕ ({i + 1}, {j + 1}) В ЯЧЕЙКЕ МАТРИЦЫ: {currentCellValue}.\n" +
-                                $"ДОПУСКАЮТСЯ ТОЛЬКО НЕОТРИЦАТЕЛЬНЫЕ ЗНАЧЕНИЯ.");
-                        }
-                    }
-                }
-            }
-            catch (FormatException)
-            {
-                string errorMessage = $"ВВЕДЕНО НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ ";
-                MessageBox.Show(errorMessage);
-            }
-            catch (ArgumentException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return edgeCount;
-        }
-
         private void calcUndirectedMatrix()
         {
-            int currentEdge = 0;
-
             for (int i = 0; i < int.Parse(vertexComboBox.SelectedItem.ToString()); i++)
             {
-                for (int j = i; j < matrixDataGrid.ColumnCount; j++)
+                for (int j = 0; j < int.Parse(edgeComboBox.SelectedItem.ToString()); j++)
                 {
-                    int currentCellValue = int.Parse(matrixDataGrid.Rows[i].Cells[j].Value.ToString());
-                    while (currentCellValue > 0)
+                    string currentCellValue = matrixDataGrid.Rows[i].Cells[j].Value.ToString();
+                    switch(currentCellValue)
                     {
-                        if (i == j)
-                        {
-                            resultMatrixDataGrid.Rows[i].Cells[currentEdge].Value = 2;
-                            currentCellValue -= 2;
-                        }
-                        else
-                        {
-                            resultMatrixDataGrid.Rows[i].Cells[currentEdge].Value = 1;
-                            resultMatrixDataGrid.Rows[j].Cells[currentEdge].Value = 1;
-                            currentCellValue--;
-                        }
-                        currentEdge++;
+                        case "1":
+                            for (int k = 0; k < int.Parse(vertexComboBox.SelectedItem.ToString()); k++)
+                            {
+                                if (i != k && matrixDataGrid.Rows[k].Cells[j].Value.ToString() == "1")
+                                {
+                                    int currentValue = int.Parse(resultMatrixDataGrid.Rows[i].Cells[k].Value.ToString());
+                                    resultMatrixDataGrid.Rows[i].Cells[k].Value = currentValue + 1;
+                                }
+                            }
+                            break;
+                        case "2":
+                            {
+                                int currentValue = int.Parse(resultMatrixDataGrid.Rows[i].Cells[i].Value.ToString());
+                                resultMatrixDataGrid.Rows[i].Cells[i].Value = currentValue + 2;
+                            }
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -178,27 +91,33 @@ namespace SA_Labs
 
         private void calcDirectedMatrix()
         {
-            int currentEdge = 0;
-
             for (int i = 0; i < int.Parse(vertexComboBox.SelectedItem.ToString()); i++)
             {
-                for (int j = 0; j < matrixDataGrid.ColumnCount; j++)
+                for (int j = 0; j < int.Parse(edgeComboBox.SelectedItem.ToString()); j++)
                 {
-                    int currentCellValue = int.Parse(matrixDataGrid.Rows[i].Cells[j].Value.ToString());
-                    while (currentCellValue > 0)
+                    string currentCellValue = matrixDataGrid.Rows[i].Cells[j].Value.ToString();
+                    switch (currentCellValue)
                     {
-                        if (i == j)
-                        {
-                            resultMatrixDataGrid.Rows[i].Cells[currentEdge].Value = "+-1";
-                            currentCellValue -= 2;
-                        }
-                        else
-                        {
-                            resultMatrixDataGrid.Rows[i].Cells[currentEdge].Value = 1;
-                            resultMatrixDataGrid.Rows[j].Cells[currentEdge].Value = -1;
-                            currentCellValue--;
-                        }
-                        currentEdge++;
+                        case "1":
+                            for (int k = 0; k < int.Parse(vertexComboBox.SelectedItem.ToString()); k++)
+                            {
+                                if (i != k && matrixDataGrid.Rows[k].Cells[j].Value.ToString() == "-1")
+                                {
+                                    int currentValue = int.Parse(resultMatrixDataGrid.Rows[i].Cells[k].Value.ToString());
+                                    resultMatrixDataGrid.Rows[i].Cells[k].Value = currentValue + 1;
+
+                                    break;
+                                }
+                            }
+                            break;
+                        case "+-1":
+                            {
+                                int currentValue = int.Parse(resultMatrixDataGrid.Rows[i].Cells[i].Value.ToString());
+                                resultMatrixDataGrid.Rows[i].Cells[i].Value = currentValue + 2;
+                            }
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -208,50 +127,77 @@ namespace SA_Labs
         {
             for(int i = 0; i < matrixDataGrid.RowCount - 1; i++)
             {
-                List<string> resultVertexList = new List<string>();
+                HashSet<string> resultVertexSet = new HashSet<string>();
                 for(int j = 0; j < matrixDataGrid.ColumnCount; j++)
                 {
-                    if (matrixDataGrid.Rows[i].Cells[j].Value.ToString() != "0")
-                        resultVertexList.Add((j + 1).ToString());
+                    string currentValue = matrixDataGrid.Rows[i].Cells[j].Value.ToString();
+                    if (currentValue == "1")
+                    {
+                        for (int k = 0; k < int.Parse(vertexComboBox.SelectedItem.ToString()); k++)
+                        {
+                            if (i != k && matrixDataGrid.Rows[k].Cells[j].Value.ToString() == "1")
+                            {
+                                resultVertexSet.Add((k + 1).ToString());
+                                break;
+                            }
+                        }
+                    }
+                    else if(currentValue == "2")
+                    {
+                        resultVertexSet.Add((i + 1).ToString());
+                    }
                 }
 
-                resultSetDataGrid.Rows[i].Cells[0].Value = "{" + string.Join(",", resultVertexList) + "}";
+                resultSetDataGrid.Rows[i].Cells[0].Value = "{" + string.Join(",", resultVertexSet) + "}";
             }
         }
 
         private void calcSetForDirectedGraph()
         {
-            for (int i = 0; i < matrixDataGrid.ColumnCount; i++)
+            for (int i = 0; i < matrixDataGrid.RowCount - 1; i++)
             {
                 List<string> resultVertexList = new List<string>();
-                for (int j = 0; j < matrixDataGrid.RowCount - 1; j++)
+                for (int j = 0; j < matrixDataGrid.ColumnCount; j++)
                 {
-                    if (matrixDataGrid.Rows[j].Cells[i].Value.ToString() != "0")
-                        resultVertexList.Add((j + 1).ToString());
+                    string currentValue = matrixDataGrid.Rows[i].Cells[j].Value.ToString();
+                    if (currentValue == "-1")
+                    {
+                        for (int k = 0; k < int.Parse(vertexComboBox.SelectedItem.ToString()); k++)
+                        {
+                            if (matrixDataGrid.Rows[k].Cells[j].Value.ToString() == "1")
+                            {
+                                resultVertexList.Add((k + 1).ToString());
+                                break;
+                            }
+                        }
+                    }
+                    else if(currentValue == "+-1")
+                    {
+                        resultVertexList.Add((i + 1).ToString());
+                    }
                 }
 
                 resultSetDataGrid.Rows[i].Cells[0].Value = "{" + string.Join(",", resultVertexList) + "}";
             }
         }
 
-        private void vertexComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int vertexCount = int.Parse(vertexComboBox.SelectedItem.ToString());
-            InitializeMatrix(matrixDataGrid, vertexCount, vertexCount);
+            SetMatrixSize();
         }
 
         private void matrixCalcButton_Click(object sender, EventArgs e)
         {
+            InitializeMatrix(resultMatrixDataGrid,
+                    int.Parse(vertexComboBox.SelectedItem.ToString()),
+                    int.Parse(vertexComboBox.SelectedItem.ToString()));
+
             if (!graphCheckBox.Checked)
             {
-                InitializeMatrix(resultMatrixDataGrid,
-                    int.Parse(vertexComboBox.SelectedItem.ToString()), getUndirectedEdgeCount());
                 calcUndirectedMatrix();
             }
             else
             {
-                InitializeMatrix(resultMatrixDataGrid, 
-                    int.Parse(vertexComboBox.SelectedItem.ToString()), getDirectedEdgeCount());
                 calcDirectedMatrix();
             }
         }
